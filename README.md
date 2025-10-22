@@ -1,0 +1,1 @@
+# shojo-shopping
