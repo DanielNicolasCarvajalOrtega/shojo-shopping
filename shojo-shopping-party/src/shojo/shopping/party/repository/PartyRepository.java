@@ -14,7 +14,7 @@ public class PartyRepository {
 
     }
 
-    // RETORNA TRUE SI SE AGREA O FALSE SI NO SE AGREGA
+    // RETORNA TRUE SI SE AGREA O FALSE SI NO SE AGREGa
     public boolean registrarParty(Party party) {
         if (party == null) {
             return false;
