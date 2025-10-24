@@ -9,7 +9,6 @@ public class PartyManager {
     // ATRIBUTO DE LA CLASE
     private List<Party> participantes;
 
-
     public PartyManager(){
         // CONSTRUCTOR
         this.participantes = new ArrayList<>();
@@ -27,10 +26,38 @@ public class PartyManager {
         return organ;
 
     }
+    public Party buscarPorId(int id){
+        for (Party party: participantes){
+            if (party.getID() == id){
+                return party;
+            }
+        }
+        return null;
+    }
 
     public List<Party> listarTodos(){
         return new ArrayList<>(participantes);
     }
+
+    public Party buscarPorNombre(String nombre){
+        if (nombre == null || nombre.isEmpty()){
+            return null;
+        }
+
+        String nombreBusqueda = nombre.toLowerCase();
+        for (Party party: participantes){
+            if (party.getNombre().contains(nombreBusqueda)){
+                return party;
+            }
+        }
+        return null;
+    }
+
+    public int obtenerTotalParty(){
+        return participantes.size();
+    }
+
+
 
 
 }

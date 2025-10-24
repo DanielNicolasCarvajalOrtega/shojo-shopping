@@ -43,7 +43,6 @@ public class PartyRepository {
     }
 
     // BUSCAR PARTICIPANTES POR NOMBRE
-
     public Party buscarPartyNombres(String nombre) {
         // EVALUAMOS EL CONTENIDO PARA EVITAR CON GUARD CLAUSES...
         if (nombre == null || nombre.isEmpty()){

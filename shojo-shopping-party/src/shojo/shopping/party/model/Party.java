@@ -31,13 +31,15 @@ public abstract class Party {
     }
     public abstract String getTipo();
 
+    // FORMATO DE LISTADO POR PANTALLA
     @Override
     public String toString () {
         return String.format(
                 "Id --> %-7d | " +
                         "Nombre --> %-26s | "  +
-                        "Rol --> %-20s | ",
-                id , nombre, rol.getDescripcion());
+                        "Rol --> %-20s | " +
+                        "Tipo --> %-20s",
+                id , nombre, rol.getDescripcion(),getTipo());
     }
 
 
