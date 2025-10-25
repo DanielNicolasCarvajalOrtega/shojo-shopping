@@ -16,15 +16,29 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+            exclude 'test/**'
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
+
 dependencies {
     // Añade aquí tus dependencias reales
     implementation 'com.google.guava:guava:32.1.2-jre'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 application {
-    // Reemplaza por la clase main real de tu proyecto
-    mainClass.set('com.example.Main')
+    mainClass.set('shojo.shopping.party.view.Main')
 }
 
 tasks.test {

@@ -64,26 +64,27 @@ public class PartyRepository {
     }
 
     /**
-     * Busca el primer Party cuyo nombre contenga la cadena dada (case-insensitive).
-     * - Si nombre es null o vacío devuelve null.
+     * Busca todos los Party cuyo nombre contenga la cadena dada (case-insensitive).
+     * - Si nombre es null o vacío devuelve lista vacía.
      * - Normaliza a minúsculas para comparación insensible a mayúsculas.
      *
      * @param nombre subcadena a buscar en el nombre del party
-     * @return el primer Party coincidente o null si no hay coincidencias
+     * @return lista de Party coincidentes (puede estar vacía)
      */
-    public Party findPartyByName(String nombre) {
+    public List<Party> findPartyByName(String nombre) {
+        List<Party> resultados = new ArrayList<>();
         if (nombre == null || nombre.isEmpty()){
-            return null;
+            return resultados;
         }
 
         String nombresPartys = nombre.toLowerCase();
 
         for (Party party : partys) {
             if (party.getNombre().toLowerCase().contains(nombresPartys)) {
-                return party;
+                resultados.add(party);
             }
         }
-        return null;
+        return resultados;
     }
 
 

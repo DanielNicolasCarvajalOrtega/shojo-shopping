@@ -13,6 +13,12 @@ public abstract class Party {
         this.rol = rol;
 
     }
+    
+    // Método para pruebas: reinicia el contador de IDs
+    public static void resetContadorId() {
+        contadorId = 1;
+    }
+    
     // METODOS GETTER Y SEETTERS
     public int getId(){
         return id;
