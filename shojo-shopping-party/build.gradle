@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.shojo'
+version = '0.1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Añade aquí tus dependencias reales
+    implementation 'com.google.guava:guava:32.1.2-jre'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+application {
+    // Reemplaza por la clase main real de tu proyecto
+    mainClass.set('com.example.Main')
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
