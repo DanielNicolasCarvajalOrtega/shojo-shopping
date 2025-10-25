@@ -19,8 +19,8 @@ public class PartyManager {
         return person;
     }
 
-    public Party registrarOrganizacion(String firstName, String lastName, RoleType rol){
-        Person organ = new Person(firstName, lastName,rol);
+    public Party registrarOrganizacion(String organizationName, RoleType rol){
+        Organization organ = new Organization(organizationName, rol);
         participantes.add(organ);
         return organ;
 
@@ -38,18 +38,19 @@ public class PartyManager {
         return new ArrayList<>(participantes);
     }
 
-    public Party buscarPorNombre(String nombre){
+    public List<Party> buscarPorNombre(String nombre){
+        List<Party> resultados = new ArrayList<>();
         if (nombre == null || nombre.isEmpty()){
-            return null;
+            return resultados;
         }
 
         String nombreBusqueda = nombre.toLowerCase();
         for (Party party: participantes){
-            if (party.getNombre().contains(nombreBusqueda)){
-                return party;
+            if (party.getNombre().toLowerCase().contains(nombreBusqueda)){
+                resultados.add(party);
             }
         }
-        return null;
+        return resultados;
     }
 
     public int obtenerTotalParty(){
