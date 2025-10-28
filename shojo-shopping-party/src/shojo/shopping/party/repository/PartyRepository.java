@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Collections;
 import shojo.shopping.party.model.Party;
 import java.util.ArrayList;
+import java.util.Optional;
 
 
 /**
@@ -58,9 +59,20 @@ public class PartyRepository {
         for (Party party : partys) {
             if (party.getId() == id) {
                 return party;
+
+    // DEVUELVE LISTA MUTABLE
+    public List<Party> obtenerPartysMutable() {
+        return new ArrayList<>(partys);
+    }
+
+    // BUSCAR PARTICIPANTE POR IDENTIFICADOR ...
+    public Optional<Party> buscarPartyId(int id) {
+        for (Party party : partys) {
+            if (party.getID() == id) {
+                return Optional.of(party);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     /**
@@ -72,18 +84,22 @@ public class PartyRepository {
      * @return el primer Party coincidente o null si no hay coincidencias
      */
     public Party findPartyByName(String nombre) {
+
+    // BUSCAR PARTICIPANTES POR NOMBRE
+    public Optional<Party> buscarPartyNombres(String nombre) {
+        // EVALUAMOS EL CONTENIDO PARA EVITAR CON GUARD CLAUSES...
         if (nombre == null || nombre.isEmpty()){
-            return null;
+            return Optional.empty();
         }
 
         String nombresPartys = nombre.toLowerCase();
 
         for (Party party : partys) {
             if (party.getNombre().toLowerCase().contains(nombresPartys)) {
-                return party;
+                return Optional.of(party);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
 
@@ -108,6 +124,18 @@ public class PartyRepository {
         }
         return false; // si no se actualizo
     }
+
+    // ACTUALIZA POR EL NOMBRE DEL PARTICIPANTE
+    public boolean actualizarNombreParty(int id, String nuevoNombre){
+        Optional <Party> optionalParty = buscarPartyId(id);
+        if (optionalParty.isPresent()){
+            Party party = optionalParty.get();
+            party.setNombre(nuevoNombre);
+            return true;
+        }
+        return false;
+    }
+
 }
 
 
