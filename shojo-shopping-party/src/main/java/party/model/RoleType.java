@@ -1,4 +1,4 @@
-package shojo.shopping.party.model;
+package party.model;
 
 public enum RoleType {
     CLIENTE("Cliente"),

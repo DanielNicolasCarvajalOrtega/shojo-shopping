@@ -1,10 +1,10 @@
-package shojo.shopping.party.model;
+package party.model;
 
 public class Organization extends Party {
     private String organizationName;
 
     public Organization(String organizationName, RoleType rol){
-        super(organizationName,rol);
+        super(organizationName,"",rol);
         this.organizationName = organizationName;
 
     }

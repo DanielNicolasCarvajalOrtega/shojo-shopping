@@ -1,7 +1,7 @@
-package shojo.shopping.party.view;
+package party.view;
 import java.util.List;
-import shojo.shopping.party.model.*;
-import shojo.shopping.party.controller.PartyManager;
+import party.model.*;
+import party.controller.PartyManager;
 
 import java.util.Optional;
 import java.util.Scanner;

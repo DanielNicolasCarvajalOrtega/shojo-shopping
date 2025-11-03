@@ -1,13 +1,15 @@
-package shojo.shopping.party.model;
+package party.model;
 
 public class Person extends Party {
     private String firstname;
     private String lastname;
 
+
     public Person (String firstname, String lastname, RoleType rol){
-        super(firstname + " " + lastname ,  rol );
+        super(firstname + " " + lastname ,"", rol );
         this.firstname = firstname;
         this.lastname = lastname;
+
 
     }
 
@@ -16,10 +18,15 @@ public class Person extends Party {
         return "Persona";
     }
 
-    public String getFirstname(){
+    public String getNombre(){
         return firstname;
     }
-    public String getLastname(){
+    public String getApellido(){
         return lastname;
     }
+
+    public String getNombreCompleto(){
+        return firstname + " " + lastname;
+    }
+
 }
