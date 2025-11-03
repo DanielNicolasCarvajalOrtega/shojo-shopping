@@ -1,4 +1,3 @@
-// Root settings file. If this repository already has a settings.gradle, append the include lines instead of replacing the file.
-rootProject.name = 'shojo-shopping'
-include ':shojo-shopping-party'
-project(':shojo-shopping-party').projectDir = file('shojo-shopping-party')
+rootProject.name = "shojo-shopping"
+
+include("shojo-shopping-party")

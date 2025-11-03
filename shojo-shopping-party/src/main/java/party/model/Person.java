@@ -1,0 +1,32 @@
+package party.model;
+
+public class Person extends Party {
+    private String firstname;
+    private String lastname;
+
+
+    public Person (String firstname, String lastname, RoleType rol){
+        super(firstname + " " + lastname ,"", rol );
+        this.firstname = firstname;
+        this.lastname = lastname;
+
+
+    }
+
+    @Override
+    public String getTipo(){
+        return "Persona";
+    }
+
+    public String getNombre(){
+        return firstname;
+    }
+    public String getApellido(){
+        return lastname;
+    }
+
+    public String getNombreCompleto(){
+        return firstname + " " + lastname;
+    }
+
+}

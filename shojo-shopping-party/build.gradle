@@ -8,7 +8,7 @@ version = '0.1.0'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(25) // usa JDK 17 o 21 LTS
     }
 }
 
@@ -17,16 +17,15 @@ repositories {
 }
 
 dependencies {
-    // Añade aquí tus dependencias reales
-    implementation 'com.google.guava:guava:32.1.2-jre'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
 }
 
 application {
-    // Reemplaza por la clase main real de tu proyecto
-    mainClass.set('com.example.Main')
+    // esto debe coincidir con el package real de Main.java (ver paso 3)
+    mainClass = 'party.view.Main'
 }
 
 tasks.test {
     useJUnitPlatform()
 }
+
